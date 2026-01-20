@@ -20,5 +20,5 @@ Tout d'abord on vient connecté la carte ESP32 au capteur LM35 avec alimentation
 
 Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récupérer les valeurs du capteurs en mV et les convertir en degrés puis on vient publier les données dans un topic ici (/RodolpheDorian/temperature) avec une connection Wifi que l'on renseigne dans le programme.
  
-<p align="center"> <img src="Programme.png"  width="400"></p>
+<p align="center"> <img src="Programme.png"  width="800"></p>
 <p align="center"><em>Figure 2 : Programme Arduino</em></p>

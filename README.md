@@ -1,10 +1,10 @@
-# \# Rapport Projet LM35
+# Rapport Projet LM35
 
 ---
 
 
 
-\## \*Introduction\*
+## *Introduction*
 
 
 
@@ -14,9 +14,7 @@ Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une
 
 
 
-\*\*test\*\*
-
-\*test\*
-
-\_test\_
+**test**
+*test*
+_test_
 

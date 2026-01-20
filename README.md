@@ -12,7 +12,6 @@ Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une
 ## *Acquisition et Transmission des données*
 
 Dans cette partie nous allons abordée comment nous avons récupérer et afficher les données du capteur sur un écran via MQTT
-<p align="center">Texte centré</p>
 Tout d'abord on vient connecté la carte ESP32 au capteur LM35 avec alimentation en 3.3 V et sortie analogique A2 :
 
 <p align="center"> <img src="Montage.png"  width="400"></p>
@@ -40,3 +39,7 @@ Après avoir déployé le programme dans Node-red on exécute dans un nouvel ong
 ```bash
 http://<hostname>:1880/ui # Avec hostname l'IP de notre interface Node-red ici 127.0.0.1
 ```
+On obtient alors cette interface :
+
+<p align="center"> <img src="Gauge.png"  width="600"></p>
+<p align="center"><em>Figure 3 : Jauge et Graphique</em></p>

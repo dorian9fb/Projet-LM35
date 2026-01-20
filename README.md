@@ -22,14 +22,15 @@ Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récu
 <p align="center"> <img src="Programme.png"  width="800"></p>
 <p align="center"><em>Figure 2 : Programme Arduino</em></p>
 
-Sur la Raspberry Pi, on vient tout d'abord installé node-red à partir de cette commande :
+Sur la Raspberry Pi, on vient tout d'abord installé Node-red à partir de cette commande :
 ```bash
 bash <(curl -sL https://github.com/node-red/linux-installers/releases/latest/download/update-nodejs-and-nodered-deb)
 ```
-Puis on execute cette commande et on vient faire un contrôle + clic sur l'adresse IP, ce qui ouvre directement une page node-red dans le moteur de recherche
+Puis on exécute cette commande dans le terminal de la Raspberry Pi et on vient faire un "contrôle + clic" sur l'adresse IP, ce qui ouvre directement une page Node-red dans le moteur de recherche.
 ```bash
 node-red-start 
 ```
+[!IMPORTANT]
 Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (/RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
 
 <p align="center"> <img src="Node.png"  width="600"></p>

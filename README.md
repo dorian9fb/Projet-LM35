@@ -24,4 +24,6 @@ Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récu
 <p align="center"><em>Figure 2 : Programme Arduino</em></p>
 
 Sur la Raspberry Pi, on vient tout d'abord installé node-red à partir de cette commande :
-$$bash <(curl -sL https://github.com/node-red/linux-installers/releases/latest/download/update-nodejs-and-nodered-deb)$$
+```bash
+bash <(curl -sL https://github.com/node-red/linux-installers/releases/latest/download/update-nodejs-and-nodered-deb)
+

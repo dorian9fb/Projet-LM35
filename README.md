@@ -17,4 +17,4 @@ Tout d'abord on vient connecté la carte ESP32 au capteur LM35 :
 
 <p align="center"> <img src="Montage.png"  width="400"></p>
 
-<p align="center"> $$Figure 1 : Branchement entre la carte ESP32 et le capteur LM35$$</p>
+<p align="center"> $$Figure 1 : Branchement /s entre la carte ESP32 et le capteur LM35$$</p>

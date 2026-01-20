@@ -14,4 +14,4 @@ Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une
 Dans cette partie nous allons abordée comment nous avons récupérer et afficher les données du capteur sur un écran via MQTT
 <p align="center">Texte centré</p>
 Tout d'abord on vient connecté la carte ESP32 au capteur LM35
-<p align="center">src = Montage.jpeg</p>
+<p align="center">![Montage](Montage.png)</p>

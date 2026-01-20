@@ -29,4 +29,14 @@ bash <(curl -sL https://github.com/node-red/linux-installers/releases/latest/dow
 ```
 Puis on execute cette commande et on vient faire un contrôle + clic sur l'adresse IP, ce qui ouvre directement une page node-red dans le moteur de recherche
 ```bash
-node-red-start ```
+node-red-start 
+```
+Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (/RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
+
+<p align="center"> <img src="Node.png"  width="800"></p>
+<p align="center"><em>Figure 3 : Interface Node-red</em></p>
+
+Après avoir déployé le programme dans Node-red on exécute dans un nouvel onglet ce lien : 
+```bash
+http://<hostname>:1880/ui # Avec hostname l'IP de notre interface Node-red
+```

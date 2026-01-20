@@ -16,4 +16,5 @@ Dans cette partie nous allons abordée comment nous avons récupérer et affiche
 Tout d'abord on vient connecté la carte ESP32 au capteur LM35 :
 
 <p align="center"> <img src="Montage.png"  width="400"></p>
-$$Figure 1 : Branchement entre la carte ESP32 et le capteur LM35$$
+
+<p align="center"> $$Figure 1 : Branchement entre la carte ESP32 et le capteur LM35$$</p>

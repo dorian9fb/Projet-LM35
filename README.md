@@ -4,7 +4,7 @@
 
 
 
-\## <span style="color:red">Introduction</span>
+\## <span style="red">Introduction</span>
 
 
 

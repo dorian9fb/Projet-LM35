@@ -30,8 +30,8 @@ Puis on exécute cette commande dans le terminal de la Raspberry Pi et on vient 
 ```bash
 node-red-start 
 ```
-[!IMPORTANT]
-Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (/RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
+>[!IMPORTANT]
+>Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (/RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
 
 <p align="center"> <img src="Node.png"  width="600"></p>
 <p align="center"><em>Figure 3 : Interface Node-red</em></p>

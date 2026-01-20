@@ -27,3 +27,6 @@ Sur la Raspberry Pi, on vient tout d'abord installé node-red à partir de cette
 ```bash
 bash <(curl -sL https://github.com/node-red/linux-installers/releases/latest/download/update-nodejs-and-nodered-deb)
 
+Puis on execute cette commande et on vient faire un contrôle + clic sur l'adresse IP, ce qui ouvre directement une page node-red dans le moteur de recherche
+```bash
+node-red-start

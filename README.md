@@ -12,3 +12,9 @@ L'objectif de ce projet est de concevoir un système de surveillance de tempéra
 
 Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une base de données SQLite, et affichées en temps réel via NodeRED. Vous devrez également mettre en place des alertes et documenter votre travail.
 
+
+
+<p><font color="red">Je veux que ce paragraphe soit en rouge</font></p>
+
+<p>Et je mets en valeur <font color="#00FF00">ce mot</font> en vert.</p>
+

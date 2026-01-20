@@ -15,3 +15,10 @@ Dans cette partie nous allons abordée comment nous avons récupérer et affiche
 <p align="center">Texte centré</p>
 
 
+<span style="color:red">
+Text content
+</span>
+
+<span style="padding:10px;background-color:#f0f0f0"> 
+Text with padding and background.
+</span>

@@ -4,7 +4,7 @@
 
 
 
-\## <span style="red">Introduction</span>
+\## \*\*Introduction\*\*
 
 
 
@@ -14,7 +14,5 @@ Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une
 
 
 
-<p><font color="red">Je veux que ce paragraphe soit en rouge</font></p>
 
-<p>Et je mets en valeur <font color="#00FF00">ce mot</font> en vert.</p>
 

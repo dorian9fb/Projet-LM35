@@ -17,4 +17,5 @@ Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une
 **test**
 *test*
 _test_
+<span style="color:red">Texte rouge</span>
 

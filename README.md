@@ -15,3 +15,6 @@ Dans cette partie nous allons abordée comment nous avons récupérer et affiche
 <p align="center">Texte centré</p>
 Tout d'abord on vient connecté la carte ESP32 au capteur LM35
 <p align="center">![Montage](Montage.png)</p>
+<p align="center">
+  <img src="Montage.png" alt="Branchement ESP32 avec capteur LM35" width="400">
+</p>

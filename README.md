@@ -4,10 +4,10 @@
 ## *Sommaire*
 
 - Introduction : [Voir](#Introduction)
-- Acquisition et Transmission des données : [Voir](#Acquisition et Transmission des données)
-- Affichage et Interface Utilisateur : [Voir](#Affichage et Interface Utilisateur)
-- Stockage et Exploitation des Données : [Voir](#Stockage et Exploitation des Données)
-- [Voir](#Stockage et Exploitation des Données)
+- Acquisition et Transmission des données : [Voir](#Acquisition-et-Transmission-des-données)
+- Affichage et Interface Utilisateur : [Voir](#Affichage-et-Interface-Utilisateur)
+- Stockage et Exploitation des Données : [Voir](#Stockage-et-Exploitation-des-Données)
+
 ## *Introduction*
 
 L'objectif de ce projet est de concevoir un système de surveillance de température en utilisant un capteur LM35, une carte ESP-32, une Raspberry Pi et le protocole MQTT.

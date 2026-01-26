@@ -8,6 +8,7 @@
 - Affichage et Interface Utilisateur : [Voir](#Affichage-et-Interface-Utilisateur)
 - Stockage et Exploitation des Données : [Voir](#Stockage-et-Exploitation-des-Données)
 - Alertes et Automatisation : [Voir](#Alertes-et-Automatisation)
+- Annexe : [Voir](#Annexe)
 
 ## *Introduction*
 
@@ -77,7 +78,7 @@ On obtient alors cette interface :
 ## *Alertes et Automatisation*
 
 Dans cette partie on veut créer un système d'alerte par LED et également par envoie de notification (mail/message Discord) qui prévient lorsque la température dépasse un certain seuil.
----
+
 Regardons d'abord la **configuration de la LED**
 
 Ensuite dans Arduino, on télécharge dans le gestionnaire de bibliothèque la librairie : Adafruit DMA neopixel Library, puis on téléverse le script `BlinkRGB` dans Fichier --> Exemple --> ESP32 --> GPIO --> BlinkRGB
@@ -108,3 +109,7 @@ void loop() {
 ```
 > [!NOTE]
 > Normalement on observe la LED qui s'allume en rouge-->vert-->bleu et s'éteint pendant une durée de 1s chacun.
+
+Une fois que ce programme fonctionne on l'ajoute au programme Arduino de base qui envoie les données vers le MQTT, on peut retrouver le programme en annexe [Voir](#Annexe)
+
+## *Annexe*

@@ -112,4 +112,147 @@ void loop() {
 
 Une fois que ce programme fonctionne on l'ajoute au programme Arduino de base qui envoie les données vers le MQTT, on peut retrouver le programme en annexe [Voir](#Annexe)
 
+Le programme à toute une série de code couleur que je vais lister ci-dessous : 
+- 🟢 --> Envoie d'une température inférieur à 20°C
+- 🔴 --> Envoie d'une température supérieur à 20°C
+- 🟠 --> Echec de la connexion au MQTT & Erreur envoie MQTT
+- 🟡 --> Tentative de connexion au Wifi
+- 🔵 --> Démarage du programme Arduino (Void setup())
+
 ## *Annexe*
+
+*Programme Arduino téléverser sur la carte ESP32*
+
+``` bash
+#include <WiFi.h>
+#include <PubSubClient.h>
+#include <Adafruit_NeoPixel.h>
+
+// ================= LED NEOPIXEL (Feather V2) =================
+Adafruit_NeoPixel pixel(1, PIN_NEOPIXEL, NEO_GRB + NEO_KHZ800);
+
+// ----- Fonctions couleurs -----
+void ledRouge() {
+  pixel.setPixelColor(0, pixel.Color(255, 0, 0));
+  pixel.show();
+}
+
+void ledVerte() {
+  pixel.setPixelColor(0, pixel.Color(0, 255, 0));
+  pixel.show();
+}
+
+void ledBleue() {
+  pixel.setPixelColor(0, pixel.Color(0, 0, 255));
+  pixel.show();
+}
+
+void ledOrange() {
+  pixel.setPixelColor(0, pixel.Color(255, 80, 0));
+  pixel.show();
+}
+
+void ledJaune() {
+  pixel.setPixelColor(0, pixel.Color(255, 255, 0));
+  pixel.show();
+}
+
+void ledOff() {
+  pixel.setPixelColor(0, pixel.Color(0, 0, 0));
+  pixel.show();
+}
+
+// ================= Configuration WiFi =================
+const char* ssid = "iPhone de Dorian";
+const char* wifi_password = "Dorian0911";
+
+// ================= Configuration MQTT =================
+const char* mqtt_server = "centreia.fr";
+const char* test_topic  = "RodolpheDorian/temperature";
+const char* mqtt_username = "rodolphe";
+const char* mqtt_password = "ferrer";
+const char* clientID = "BLE";
+
+// ================= WiFi & MQTT =================
+WiFiClient wifiClient;
+PubSubClient client(wifiClient);
+
+// ================= Connexion MQTT =================
+void connect_MQTT() {
+  client.setServer(mqtt_server, 1883);
+
+  if (client.connect(clientID)) {
+    Serial.println("✅ MQTT connecté");
+  } else {
+    Serial.println("❌ Échec MQTT");
+    ledOrange();
+  }
+}
+
+// ================= SETUP =================
+void setup() {
+  Serial.begin(9600);
+
+  pixel.begin();
+  pixel.setBrightness(20);
+
+  // Démarrage
+  ledBleue();
+  delay(500);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, wifi_password);
+
+  Serial.print("Connexion WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+    ledJaune();   // WiFi en cours
+  }
+
+  Serial.println("\n✅ WiFi connecté");
+  Serial.println(WiFi.localIP());
+
+  ledBleue(); // WiFi OK
+}
+
+// ================= LOOP =================
+void loop() {
+
+  // MQTT
+  if (!client.connected()) {
+    connect_MQTT();
+  }
+
+  client.loop();
+
+  // Lecture ADC
+  int raw = analogRead(33);
+  float volts = raw * 3.3 / 4095;
+  float degres = volts / 0.01;
+  
+  String temperature_string = String(degres);
+
+  Serial.println(degres);
+
+  // Envoi MQTT
+  if (client.publish(test_topic, temperature_string.c_str())) {
+    Serial.println("📨 Température envoyée");
+
+  } else {
+    Serial.println("⚠️ Erreur envoi MQTT");
+    ledOrange();
+  }
+  if (degres < 20) {
+    ledVerte();
+    delay(1000);
+
+  } else  {
+      ledRouge();
+      delay(1000);
+  }
+  client.disconnect();
+  ledOff();
+  delay(10000);
+}
+```

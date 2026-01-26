@@ -77,11 +77,10 @@ On obtient alors cette interface :
 ## *Alertes et Automatisation*
 
 Dans cette partie on veut créer un système d'alerte par LED et également par envoie de notification (mail/message Discord) qui prévient lorsque la température dépasse un certain seuil.
+---
+Regardons d'abord la **configuration de la LED**
 
-Regardons d'abord la <ins>configuration de la LED</ins>
-
-Dans Arduino, on télécharge dans le gestionnaire de bibliothèque la librairie : Adafruit DMA neopixel Library
-Ensuite on téléverse le script `BlinkRGB` dans Fichier --> Exemple --> ESP32 --> GPIO --> BlinkRGB
+Ensuite dans Arduino, on télécharge dans le gestionnaire de bibliothèque la librairie : Adafruit DMA neopixel Library, puis on téléverse le script `BlinkRGB` dans Fichier --> Exemple --> ESP32 --> GPIO --> BlinkRGB
 
 ``` bash
 void setup() {
@@ -107,3 +106,5 @@ void loop() {
 #endif
 }
 ```
+> [!NOTE]
+> Normalement on observe la LED qui s'allume en rouge-->vert-->bleu et s'éteint pendant une durée de 1s chacun.

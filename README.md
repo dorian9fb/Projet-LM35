@@ -121,7 +121,7 @@ Le programme à toute une série de code couleur que je vais lister ci-dessous :
 
 ## *Annexe*
 
-*Programme Arduino téléverser sur la carte ESP32*
+<p align="center"><ins>Programme Arduino téléverser sur la carte ESP32</ins></p>
 
 ``` bash
 #include <WiFi.h>

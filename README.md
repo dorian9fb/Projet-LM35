@@ -12,7 +12,17 @@
 
 L'objectif de ce projet est de concevoir un système de surveillance de température en utilisant un capteur LM35, une carte ESP-32, une Raspberry Pi et le protocole MQTT.
 
-Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une base de données SQLite, et affichées en temps réel via NodeRED. Vous devrez également mettre en place des alertes et documenter votre travail.
+Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une base de données SQLite, et affichées en temps réel via NodeRED. On devra également mettre en place des alertes et documenter votre travail. Ci-dessous un diagramme mermaid montrant le chemin de transmission des données :
+
+``` mermaid
+flowchart TD
+    A[Capteur LM35] -->|Plaque de prototypage| B(Carte ESP32)
+    B[Carte ESP32] -->|Plaque de prototypage| C(Wifi MQTT Publisher)
+    C --> |fa:fa-wifi Wifi telephone| D{Serveur MQTT}
+    E[LaNode-red MQTT subscriber] --> D
+    F[Raspberry Pi] <--> D
+    H[fa:fa-laptop Ecran] --> |fa:fa-wifi Wifi local|E
+```
 
 
 ## *Acquisition et Transmission des données*

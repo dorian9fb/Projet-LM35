@@ -3,10 +3,10 @@
 ---
 ## *Sommaire*
 
--Introduction : [Voir](#Introduction)
--Acquisition et Transmission des données : [Voir](#Acquisition et Transmission des données)
--Affichage et Interface Utilisateur : [Voir](#Affichage et Interface Utilisateur)
--Stockage et Exploitation des Données : [Voir](#Stockage et Exploitation des Données)
+- Introduction : [Voir](#Introduction)
+- Acquisition et Transmission des données : [Voir](#Acquisition et Transmission des données)
+- Affichage et Interface Utilisateur : [Voir](#Affichage et Interface Utilisateur)
+- Stockage et Exploitation des Données : [Voir](#Stockage et Exploitation des Données)
 
 ## *Introduction*
 
@@ -31,7 +31,7 @@ Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récu
 <p align="center"> <img src="Programme.png"  width="800"></p>
 <p align="center"><em>Figure 2 : Programme Arduino</em></p>
 
-> [!ASTUCE]
+> [!TIP]
 > Pour réduire la consommation électrique du module on vient augmenter le délais de transmission des données, ici on les transmets toutes les dix secondes.
 
 ## *Affichage et Interface Utilisateur*

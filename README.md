@@ -7,6 +7,7 @@
 - Acquisition et Transmission des données : [Voir](#Acquisition-et-Transmission-des-données)
 - Affichage et Interface Utilisateur : [Voir](#Affichage-et-Interface-Utilisateur)
 - Stockage et Exploitation des Données : [Voir](#Stockage-et-Exploitation-des-Données)
+- Alertes et Automatisation : [Voir](#Alertes-et-Automatisation)
 
 ## *Introduction*
 
@@ -19,7 +20,7 @@ flowchart TD
     A[Capteur LM35] -->|Plaque de prototypage| B(Carte ESP32)
     B[Carte ESP32] -->|Plaque de prototypage| C(Wifi MQTT Publisher)
     C --> |fa:fa-wifi Wifi telephone| D{Serveur MQTT}
-    E[LaNode-red MQTT subscriber] --> D
+    E[Node-red MQTT subscriber] <--> D
     F[Raspberry Pi] <--> D
     H[fa:fa-laptop Ecran] --> |fa:fa-wifi Wifi local|E
 ```
@@ -38,7 +39,7 @@ Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récu
 >[!IMPORTANT]
 >La connexion Wifi doit être en 2,4 GHz au risque que les données ne puissent pas s'envoyer, à noter que ce n'est pas primordial que le Wifi sur Arduino soit le même que celi sur la Raspberry Pi
 
-<p align="center"> <img src="Programme.png"  width="800"></p>
+<p align="center"> <img src="Programme.png"  width="400"></p>
 <p align="center"><em>Figure 2 : Programme Arduino</em></p>
 
 > [!TIP]
@@ -72,3 +73,37 @@ On obtient alors cette interface :
 <p align="center"><em>Figure 4 : Jauge et Graphique</em></p>
 
 ## *Stockage et Exploitation des Données*
+
+## *Alertes et Automatisation*
+
+Dans cette partie on veut créer un système d'alerte par LED et également par envoie de notification (mail/message Discord) qui prévient lorsque la température dépasse un certain seuil.
+
+Regardons d'abord la <ins>configuration de la LED</ins>
+
+Dans Arduino, on télécharge dans le gestionnaire de bibliothèque la librairie : Adafruit DMA neopixel Library
+Ensuite on téléverse le script `BlinkRGB` dans Fichier --> Exemple --> ESP32 --> GPIO --> BlinkRGB
+
+``` bash
+void setup() {
+  // No need to initialize the RGB LED
+}
+
+// the loop function runs over and over again forever
+void loop() {
+#ifdef RGB_BUILTIN
+  digitalWrite(RGB_BUILTIN, HIGH);  // Turn the RGB LED white
+  delay(1000);
+  digitalWrite(RGB_BUILTIN, LOW);  // Turn the RGB LED off
+  delay(1000);
+
+  rgbLedWrite(RGB_BUILTIN, RGB_BRIGHTNESS, 0, 0);  // Red
+  delay(1000);
+  rgbLedWrite(RGB_BUILTIN, 0, RGB_BRIGHTNESS, 0);  // Green
+  delay(1000);
+  rgbLedWrite(RGB_BUILTIN, 0, 0, RGB_BRIGHTNESS);  // Blue
+  delay(1000);
+  rgbLedWrite(RGB_BUILTIN, 0, 0, 0);  // Off / black
+  delay(1000);
+#endif
+}
+```

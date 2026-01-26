@@ -1,6 +1,9 @@
 # Rapport Projet LM35
 
 ---
+## *Sommaire*
+
+Introduction : [Link Text](#Introduction)
 
 ## *Introduction*
 
@@ -46,4 +49,4 @@ http://<hostname>:1880/ui # Avec hostname l'IP de notre interface Node-red ici 1
 On obtient alors cette interface :
 
 <p align="center"> <img src="Gauge.png"  width="600"></p>
-<p align="center"><em>Figure 3 : Jauge et Graphique</em></p>
+<p align="center"><em>Figure 4 : Jauge et Graphique</em></p>

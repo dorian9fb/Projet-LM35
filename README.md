@@ -3,7 +3,10 @@
 ---
 ## *Sommaire*
 
-Introduction : [Link Text](#Introduction)
+Introduction : [Voir](#Introduction)
+Acquisition et Transmission des données : [Voir](#Acquisition et Transmission des données)
+Affichage et Interface Utilisateur : [Voir](#Affichage et Interface Utilisateur)
+Stockage et Exploitation des Données : [Voir](#Stockage et Exploitation des Données)
 
 ## *Introduction*
 
@@ -20,13 +23,20 @@ Tout d'abord on vient connecté la carte ESP32 au capteur LM35 avec alimentation
 <p align="center"> <img src="Montage.png"  width="400"></p>
 <p align="center"><em>Figure 1 : Branchement entre la carte ESP32 et le capteur LM35</em></p>
 
-Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récupérer les valeurs du capteurs en mV et les convertir en degrés puis on vient publier les données dans un topic ici (/RodolpheDorian/temperature) avec une connection Wifi que l'on renseigne dans le programme.
+Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récupérer les valeurs du capteurs en mV et les convertir en degrés puis on vient publier les données dans un topic ici (RodolpheDorian/temperature) avec une connection Wifi que l'on renseigne dans le programme.
 
 >[!IMPORTANT]
 >La connexion Wifi doit être en 2,4 GHz au risque que les données ne puissent pas s'envoyer, à noter que ce n'est pas primordial que le Wifi sur Arduino soit le même que celi sur la Raspberry Pi
 
 <p align="center"> <img src="Programme.png"  width="800"></p>
 <p align="center"><em>Figure 2 : Programme Arduino</em></p>
+
+> [!Astuce]
+> Pour réduire la consommation électrique du module on vient augmenter le délais de transmission des données, ici on les transmets toutes les dix secondes.
+
+## *Affichage et Interface Utilisateur*
+
+Dans cette partie on vient créer grâce à Node-Red une interface qui montre l'évolution en temps réel de la température mesuré avec le capteur LM35 
 
 Sur la Raspberry Pi, on vient tout d'abord installé Node-red à partir de cette commande :
 ```bash
@@ -37,7 +47,7 @@ Puis on exécute cette commande dans le terminal de la Raspberry Pi et on vient 
 node-red-start 
 ```
 
-Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (/RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
+Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
 
 <p align="center"> <img src="Node.png"  width="600"></p>
 <p align="center"><em>Figure 3 : Interface Node-red</em></p>
@@ -50,3 +60,5 @@ On obtient alors cette interface :
 
 <p align="center"> <img src="Gauge.png"  width="600"></p>
 <p align="center"><em>Figure 4 : Jauge et Graphique</em></p>
+
+## *Stockage et Exploitation des Données*

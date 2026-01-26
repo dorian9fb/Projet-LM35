@@ -29,13 +29,21 @@ flowchart TD
 
 ## *Acquisition et Transmission des données*
 
-Dans cette partie nous allons abordée comment nous avons récupérer et afficher les données du capteur sur un écran via MQTT
-Tout d'abord on vient connecté la carte ESP32 au capteur LM35 avec alimentation en 3.3 V et sortie analogique A2 :
+Dans cette partie nous allons aborder comment nous avons récupérés et affichés les données du capteur sur un écran via MQTT
+Tout d'abord on vient connecter la carte ESP32 au capteur LM35 avec alimentation en 5 V et sortie analogique 33 :
 
 <p align="center"> <img src="Montage.png"  width="400"></p>
 <p align="center"><em>Figure 1 : Branchement entre la carte ESP32 et le capteur LM35</em></p>
 
-Par la suite on intègre le programme Arduino dans la carte ESP-32 afin de récupérer les valeurs du capteurs en mV et les convertir en degrés puis on vient publier les données dans un topic ici (RodolpheDorian/temperature) avec une connection Wifi que l'on renseigne dans le programme.
+Par la suite on intègre le programme Arduino ([Voir en annexe](#Annexe)) dans la carte ESP-32 afin de récupérer les valeurs du capteurs en mV et les convertir en degrés puis on vient publier les données dans un topic ici (RodolpheDorian/temperature) avec une connection Wifi que l'on renseigne dans le programme.
+
+<ins>Conversion des mV en degrés : </ins>
+
+``` bash
+  int raw = analogRead(33);
+  float volts = (float)raw * 5 / 4095;
+  float degres = volts / 0.01;
+```
 
 >[!IMPORTANT]
 >La connexion Wifi doit être en 2,4 GHz au risque que les données ne puissent pas s'envoyer, à noter que ce n'est pas primordial que le Wifi sur Arduino soit le même que celi sur la Raspberry Pi
@@ -112,7 +120,7 @@ void loop() {
 
 Une fois que ce programme fonctionne on l'ajoute au programme Arduino de base qui envoie les données vers le MQTT, on peut retrouver le programme en annexe [Voir](#Annexe)
 
-Le programme à toute une série de code couleur que je vais lister ci-dessous : 
+Le programme à toute une série de code couleur qui idique l'état de la transmission des données que je vais lister ci-dessous : 
 - 🟢 --> Envoie d'une température inférieur à 20°C
 - 🔴 --> Envoie d'une température supérieur à 20°C
 - 🟠 --> Echec de la connexion au MQTT & Erreur envoie MQTT
@@ -186,9 +194,20 @@ void connect_MQTT() {
   } else {
     Serial.println("❌ Échec MQTT");
     ledOrange();
+    delay(1000);
   }
 }
+// ==============Couleur LED ======================
+void ledtemp(float degres) {
+    if (degres < 20) {
+      ledVerte();
+      delay(1000);
 
+  } else  {
+      ledRouge();
+      delay(1000);
+  }
+}
 // ================= SETUP =================
 void setup() {
   Serial.begin(9600);
@@ -228,7 +247,7 @@ void loop() {
 
   // Lecture ADC
   int raw = analogRead(33);
-  float volts = raw * 3.3 / 4095;
+  float volts = (float)raw * 5 / 4095;
   float degres = volts / 0.01;
   
   String temperature_string = String(degres);
@@ -238,19 +257,14 @@ void loop() {
   // Envoi MQTT
   if (client.publish(test_topic, temperature_string.c_str())) {
     Serial.println("📨 Température envoyée");
+    ledtemp(degres);
 
   } else {
     Serial.println("⚠️ Erreur envoi MQTT");
     ledOrange();
-  }
-  if (degres < 20) {
-    ledVerte();
     delay(1000);
-
-  } else  {
-      ledRouge();
-      delay(1000);
   }
+
   client.disconnect();
   ledOff();
   delay(10000);

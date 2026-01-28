@@ -99,7 +99,7 @@ Dans cette partie on veut créer un système d'alerte par LED et également par 
 
 Regardons d'abord la **configuration de la LED**
 
-Ensuite dans Arduino, `on télécharge dans le gestionnaire` de bibliothèque la librairie : Adafruit DMA neopixel Library, puis on téléverse le script `BlinkRGB` dans Fichier --> Exemple --> ESP32 --> GPIO --> BlinkRGB
+Ensuite dans Arduino, on télécharge dans le gestionnaire de bibliothèque la librairie : Adafruit DMA neopixel Library, puis on téléverse le script `BlinkRGB` dans Fichier --> Exemple --> ESP32 --> GPIO --> BlinkRGB
 
 ``` bash
 void setup() {

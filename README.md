@@ -54,6 +54,17 @@ Par la suite on intègre le programme Arduino ([Voir en annexe](#Annexe)) dans l
 > [!TIP]
 > Pour réduire la consommation électrique du module on vient augmenter le délais de transmission des données, ici on les transmets toutes les dix secondes.
 
+Pour vérifier que le module consommé peu, nous avons branché une batterie de 3,9 V sur la carte ESP32 et pendant 1h on a relevé les valeurs de tension de la batterie, puis on a tracè la courbe de la décharge en V en fonction du temps (voir ci-dessous)
+
+<p align="center"> <img src="Courbe.png"  width="600"></p>
+<p align="center"><em>Figure 3 : Courbe de déchargement de la batterie</em></p>
+>On observe donc une courbe décroissante, pas totalement linéaire ce qui est normale pour une courbe de décharge de batterie selon la théorie, avec pour équation `U = -0,0009t + 3,881 `, ce qui signifie que la batterie se décharge de 0,9 mV toutes les minutes
+
+<p align="center"> <img src="Montage batterie.png"  width="400"></p>
+<p align="center"><em>Figure 4 : Montage déchargement de la batterie</em></p>
+
+On observe donc une courbe décroissante, pas totalement linéaire ce qui est normale pour une courbe de décharge de batterie selon la théorie, avec pour équation `U = -0,0009t + 3,881 `, ce qui signifie que la batterie se décharge de 0,9 mV toutes les minutes
+
 ## *Affichage et Interface Utilisateur*
 
 Dans cette partie on vient créer grâce à Node-Red une interface qui montre l'évolution en temps réel de la température mesuré avec le capteur LM35 
@@ -70,7 +81,7 @@ node-red-start
 Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
 
 <p align="center"> <img src="Node.png"  width="600"></p>
-<p align="center"><em>Figure 3 : Interface Node-red</em></p>
+<p align="center"><em>Figure 5 : Interface Node-red</em></p>
 
 Après avoir déployé le programme dans Node-red on exécute dans un nouvel onglet ce lien : 
 ```bash
@@ -79,7 +90,7 @@ http://<hostname>:1880/ui # Avec hostname l'IP de notre interface Node-red ici 1
 On obtient alors cette interface :
 
 <p align="center"> <img src="Gauge.png"  width="600"></p>
-<p align="center"><em>Figure 4 : Jauge et Graphique</em></p>
+<p align="center"><em>Figure 6 : Jauge et Graphique</em></p>
 
 ## *Stockage et Exploitation des Données*
 

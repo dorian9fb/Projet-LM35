@@ -58,7 +58,7 @@ Pour vérifier que le module consommé peu, nous avons branché une batterie de 
 
 <p align="center"> <img src="Courbe.png"  width="600"></p>
 <p align="center"><em>Figure 3 : Courbe de déchargement de la batterie</em></p>
-On observe donc une courbe décroissante, pas totalement linéaire ce qui est normale pour une courbe de décharge de batterie selon la théorie, avec pour équation **U = -0,0009t + 3,881** , ce qui signifie que la batterie se décharge de 0,9 mV toutes les minutes
+On observe donc une courbe décroissante, pas totalement linéaire ce qui est normale pour une courbe de décharge de batterie selon la théorie, avec pour équation $`U = -0,0009t + 3,881`$ , ce qui signifie que la batterie se décharge de 0,9 mV toutes les minutes
 
 <p align="center"> <img src="Montage batterie.png"  width="250"></p>
 <p align="center"><em>Figure 4 : Montage déchargement de la batterie</em></p>

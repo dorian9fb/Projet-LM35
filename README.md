@@ -19,7 +19,7 @@ Les données seront transmises au Raspberry Pi via Mosquitto, stockées dans une
 ``` mermaid
 flowchart TD
     A[Capteur LM35] -->|Plaque de prototypage| B(Carte ESP32)
-    B[Carte ESP32] -->|Plaque de prototypage| C(Wifi MQTT Publisher)
+    B[Carte ESP32] -->|Programme Arduino| C(Wifi MQTT Publisher)
     C --> |fa:fa-wifi Wifi telephone| D{Serveur MQTT}
     E[Node-red MQTT subscriber] <--> D
     F[Raspberry Pi] <--> D

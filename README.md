@@ -30,7 +30,7 @@ flowchart TD
 ## *Acquisition et Transmission des données*
 
 Dans cette partie nous allons aborder comment nous avons récupérés et affichés les données du capteur sur un écran via MQTT
-Tout d'abord on vient connecter la carte ESP32 au capteur LM35 avec alimentation en 5 V et sortie analogique 33 :
+Tout d'abord on vient connecter la carte ESP32 au capteur LM35 avec alimentation en 5 V `Pin USB` et sortie analogique 33, comme ci-dessous:
 
 <p align="center"> <img src="Montage.png"  width="400"></p>
 <p align="center"><em>Figure 1 : Branchement entre la carte ESP32 et le capteur LM35</em></p>

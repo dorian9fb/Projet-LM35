@@ -1,3 +1,5 @@
+# [README](README.md) | [Guide de dépannage](Guide_de_dépannage.md)
+---
 # Guide de dépannage
 
 ---
@@ -5,6 +7,7 @@
 
 - Introduction : [Voir](#Introduction)
 - Programme Arduino : [Voir](#Programme-Arduino)
+- Node-Red : [Voir](#Node-Red)
 
 ## *Introduction*
 
@@ -35,3 +38,5 @@ Il ne faut pas d'espace entre le texte et les "" dans le programme Arduino `"Tex
 Si on veut des valeurs stables, il faut que le capteur soit alimenté en 5 V au moins mais pas 3,3 V. 
 
 Donc on se place sur la broche nommé `USB` de la carte EP32
+
+## Node Red

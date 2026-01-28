@@ -1,3 +1,5 @@
+# [README](README.md) | [Guide de dépannage](Guide_de_dépannage.md)
+---
 # Rapport Projet LM35
 
 ---

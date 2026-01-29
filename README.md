@@ -7,7 +7,9 @@
 - Acquisition et Transmission des données : [Voir](#Acquisition-et-Transmission-des-données)
 - Affichage et Interface Utilisateur : [Voir](#Affichage-et-Interface-Utilisateur)
 - Stockage et Exploitation des Données : [Voir](#Stockage-et-Exploitation-des-Données)
+- Amélioration affichage et Interface Utilisateur : [Voir](#Amélioration-affichage-et-Interface-Utilisateur)
 - Alertes et Automatisation : [Voir](#Alertes-et-Automatisation)
+- Sécurisation et Fiabilité : [Voir](#Sécurisation-et-Fiabilité)
 - Annexe : [Voir](#Annexe)
 
 ## *Introduction*
@@ -144,7 +146,7 @@ SELECT * from temperature
 ```
 On obtient le tableau suivant :
 
-<p align="center"> <img src="Tableau.png"  width="100"></p>
+<p align="center"> <img src="Tableau.png"  width="250"></p>
 <p align="center"><em>Figure 6 : Base de données SQlite</em></p>
 
 6. Création d'un fichier CSV
@@ -161,8 +163,22 @@ Ce fichier « data.csv » est enregistrer dans /home/dorian, dans la carte SD de
 
 <p align="center">
   <img src="Dossier.png" width="45%" />
-  <img src="CSV.png" width="25%" />
+  <img src="CSV.png" width="20%" />
 </p><p align="center"><em>Figure 6 : Chemin d'accès CSV</em></p>
+
+## *Amélioration affichage et Interface Utilisateur*
+
+On vient reprendre la base que l'on avait dans la partie [Affichage et interface Utilisateur](#Affichage-et-Interface-Utilisateur) pour l'améliorer.
+Notre schéma est composé de 7 blocs principaux :
+- 1 bloc de connexion
+- 1 bloc jauge de température
+- 1 bloc fonction
+- 2 bloc de debug
+- 1 bloc SQLite
+- 1 bloc graphique
+
+<p align="center"> <img src="Node2.png"  width="600"></p>
+<p align="center"><em>Figure 6 : Interface Node-Red</em></p>
 
 
 
@@ -209,6 +225,15 @@ Le programme à toute une série de code couleur qui idique l'état de la transm
 - 🟠 --> Echec de la connexion au MQTT & Erreur envoie MQTT
 - 🟡 --> Tentative de connexion au Wifi
 - 🔵 --> Démarage du programme Arduino (Void setup())
+
+## *Sécurisation et Fiabilité*
+
+Afin d’évaluer la résilience du système face à une interruption du réseau et de vérifier la continuité de la transmission des données, plusieurs scénarios de coupure ont été simulés.
+Dans un premier temps, la carte ESP32 ainsi que le Raspberry Pi ont été déconnectés du réseau, puis reconnectés volontairement. Après rétablissement de la connexion, nous avons constaté que la transmission des données via le protocole MQTT reprenait automatiquement, sans perte fonctionnelle ni intervention manuelle.
+
+Un second test a consisté à modifier le réseau Wi-Fi utilisé par les équipements, puis à les reconnecter au nouveau point d’accès. Les résultats observés ont confirmé le même comportement : les données étaient de nouveau transmises correctement vers le broker Mosquitto, stockées dans la base de données SQLite et affichées en temps réel sur Node-RED.
+
+Ces tests démontrent la capacité du système à gérer des interruptions réseau temporaires tout en assurant la reprise automatique des communications.
 
 ## *Annexe*
 

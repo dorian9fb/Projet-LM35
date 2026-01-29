@@ -1,5 +1,3 @@
-# [README](README.md) | [Guide de dépannage](Guide_de_dépannage.md)
----
 # Rapport Projet LM35
 
 ---
@@ -79,6 +77,8 @@ Puis on exécute cette commande dans le terminal de la Raspberry Pi et on vient 
 ```bash
 node-red-start 
 ```
+<p align="center"> <img src="IP.png"  width="600"></p>
+<p align="center"><em>Figure 5 : Accès Node-red</em></p>
 
 Dans la page Node-red on renseigne le nom de domaine (centreia.fr) et le nom du topic (RodolpheDorian/temperature), on vient ajouter une jauge et un graphique permettant de visualiser les données dans une interface :
 
@@ -95,6 +95,76 @@ On obtient alors cette interface :
 <p align="center"><em>Figure 6 : Jauge et Graphique</em></p>
 
 ## *Stockage et Exploitation des Données*
+
+Dans cette partie, nous allons dans un premier temps enregistrer les données dans une base SQlite sur la Raspberry Pi. Puis dans un second temps, mettre en place une structure de base de données organisée afin d’assurer une récupération efficace des données.
+ 
+Pour ce faire, nous commençons par allumer la Raspberry Pi et l'on s’assure qu'elle est bien connectée à un réseau WIFI avec un accès à Internet.
+
+> [!NOTE]
+> Dans cette partie on reprends le travail fait dans la partie **Affichage et interface utilisateur** avec l'installions de Node-Red et son démarage.
+- Affichage et Interface Utilisateur : [Voir](#Affichage-et-Interface-Utilisateur)
+
+Une fois que Node-Red est installé et lancé, on passe à la création de la base de données SQLite :
+
+1. Installation SQLite
+
+```bash
+sudo apt install sqlite3
+```
+
+2. Création de la base de données
+```bash
+sqlite3 temperature.db
+```
+
+3. Création tableau de données
+
+Cela permet de visualiser les données sur la console du Raspberry. On utilise la ligne de code suivante pour sa création :
+
+```bash
+CREATE TABLE temperature ( id INTEGER PRIMARY KEY AUTOINCREMENT, temperature, currentdate, currentime, device) ;
+```
+On a donc créer 5 colonnes qui vont contenir le nombre d'itération | la valeur de la température à l'instant t | la date actuelle | le temps t de la mesure | l'objet, ici le capteur LM35
+
+4. Insertion des données dans le tableau
+
+Au dèpart le tableau est vide, il faut donc le remplir et dire où le programme doit chercher les valeurs pour chaque colonnes. On exécute donc cette commande :
+
+```bash
+INSERT INTO temperature (temperature, currentime, currentdate, device) VALUES ($temperature, time(« now »), date (« now »), « lm35 ») ;
+```
+Si la carte ESP32 est correctement connectée au serveur MQTT de la Raspberry Pi alors le tableau se remplit au fur et à mesure que les données sont envoyées.
+
+5. Visualiser les données
+
+Pour pouvoir visualiser les données dans le terminal du Raspberry, on utilise cette commande :
+
+```bash
+SELECT * from temperature
+```
+On obtient le tableau suivant :
+
+<p align="center"> <img src="Tableau.png"  width="400"></p>
+<p align="center"><em>Figure 6 : Base de données SQlite</em></p>
+
+6. Création d'un fichier CSV
+
+On peut ensuite crée un fichier CSV permettant de stocker les données afin de les retrouver et les exploiter plus tard.
+Il faut donc exécuter dans l'ordre ces commandes :
+
+```bash
+.mode csv
+.output data.csv #le fichier ce nomme data ici
+SELECT * from temperature;
+```
+Ce fichier « data.csv » est enregistrer dans /home/dorian, dans la carte SD de la Raspberry.
+
+<p align="center">
+  <img src="Dossier.png" width="45%" />
+  <img src="CSV.png" width="45%" />
+</p><p align="center"><em>Figure 6 : Chemin d'accès CSV</em></p>
+
+
 
 ## *Alertes et Automatisation*
 

@@ -144,7 +144,7 @@ SELECT * from temperature
 ```
 On obtient le tableau suivant :
 
-<p align="center"> <img src="Tableau.png"  width="400"></p>
+<p align="center"> <img src="Tableau.png"  width="100"></p>
 <p align="center"><em>Figure 6 : Base de données SQlite</em></p>
 
 6. Création d'un fichier CSV
@@ -161,7 +161,7 @@ Ce fichier « data.csv » est enregistrer dans /home/dorian, dans la carte SD de
 
 <p align="center">
   <img src="Dossier.png" width="45%" />
-  <img src="CSV.png" width="45%" />
+  <img src="CSV.png" width="25%" />
 </p><p align="center"><em>Figure 6 : Chemin d'accès CSV</em></p>
 
 

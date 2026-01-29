@@ -235,6 +235,10 @@ Un second test a consisté à modifier le réseau Wi-Fi utilisé par les équipe
 
 Ces tests démontrent la capacité du système à gérer des interruptions réseau temporaires tout en assurant la reprise automatique des communications.
 
+---
+<p align="center"> [Voir le Guide de dépanage⚙️](#Guide_de_dépannage.md)</p>
+---
+
 ## *Annexe*
 
 <p align="center"><ins>Programme Arduino téléverser sur la carte ESP32</ins></p>

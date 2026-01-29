@@ -237,7 +237,8 @@ Ces tests démontrent la capacité du système à gérer des interruptions rése
 
 ---
 <p align="center"> [Voir le Guide de dépanage⚙️](Guide_de_dépannage.md)</p>
----
+
+[Voir le Guide de dépanage⚙️](Guide_de_dépannage.md)
 
 ## *Annexe*
 

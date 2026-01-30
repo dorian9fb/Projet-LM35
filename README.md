@@ -182,10 +182,12 @@ On vient reprendre la base que l'on avait dans la partie [Affichage et interface
 Notre schéma est composé de 7 blocs principaux :
 - 1 bloc de connexion
 - 1 bloc jauge de température
-- 1 bloc fonction
-- 2 bloc de debug
+- 3 blosc fonction
+- 2 blocs de debug
 - 1 bloc SQLite
 - 1 bloc graphique
+- 2 blocs switch
+- 1 bloc e-mail
 
 <p align="center"> <img src="Node2.png"  width="600"></p>
 <p align="center"><em>Figure 10 : Interface Node-Red</em></p>
@@ -267,8 +269,8 @@ Il faut également configurer son adresse gmail, voici les étapes :
 Un fois que tout est fait on reçoit correctement les mails lorsque la température dépasse les limites fixés qui était ici de `18` et `20`
 
 <p align="center">
-  <img src="Mail1.png" width="45%" />
-  <img src="Mail2.png" width="45%" />
+  <img src="Mail1.PNG" width="45%" />
+  <img src="Mail2.PNG" width="45%" />
 </p><p align="center"><em>Figure 9 : Alerte mail</em></p>
 
 ## *Sécurisation et Fiabilité*

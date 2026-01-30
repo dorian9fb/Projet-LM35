@@ -238,6 +238,11 @@ Le programme à toute une série de code couleur qui idique l'état de la transm
 - 🟡 --> Tentative de connexion au Wifi
 - 🔵 --> Démarage du programme Arduino (Void setup())
 
+<p align="center">
+  <img src="Montage.png" width="25%" />
+  <img src="LED.png" width="25%" />
+</p><p align="center"><em>Figure 11 : Témoin lumineux</em></p>
+
 <ins>Configuration alerte par mail :</ins>
 
 Sur Node-Red on vient ajouter les blocs `Switch`; `function` et `Mail`
@@ -247,15 +252,15 @@ Pour configurer les blocs switch on sélectionne payload dans "Property" et avec
 Pour configurer les blocs function on rentre les script suivant dans l'onglet `On Message` :
 
 <p align="center"> <img src="Basse.png"  width="600"></p>
-<p align="center"><em>Figure 11 : Fonction température basse</em></p>
+<p align="center"><em>Figure 12 : Fonction température basse</em></p>
 
 <p align="center"> <img src="Haute.png"  width="600"></p>
-<p align="center"><em>Figure 12 : Fonction température haute</em></p>
+<p align="center"><em>Figure 13 : Fonction température haute</em></p>
 
 Pour configurer le blocs e-mail il faut remplir comme ceci :
 
 <p align="center"> <img src="Gmail.png"  width="600"></p>
-<p align="center"><em>Figure 13 : Config bloc e-mail</em></p>
+<p align="center"><em>Figure 14 : Config bloc e-mail</em></p>
 
 Il faut également configurer son adresse gmail, voici les étapes :
 
@@ -271,7 +276,7 @@ Un fois que tout est fait on reçoit correctement les mails lorsque la températ
 <p align="center">
   <img src="Mail1.PNG" width="45%" />
   <img src="Mail2.PNG" width="45%" />
-</p><p align="center"><em>Figure 14 : Alerte mail</em></p>
+</p><p align="center"><em>Figure 15 : Alerte mail</em></p>
 
 ## *Sécurisation et Fiabilité*
 

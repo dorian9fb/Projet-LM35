@@ -271,7 +271,7 @@ Un fois que tout est fait on reçoit correctement les mails lorsque la températ
 <p align="center">
   <img src="Mail1.PNG" width="45%" />
   <img src="Mail2.PNG" width="45%" />
-</p><p align="center"><em>Figure 9 : Alerte mail</em></p>
+</p><p align="center"><em>Figure 14 : Alerte mail</em></p>
 
 ## *Sécurisation et Fiabilité*
 

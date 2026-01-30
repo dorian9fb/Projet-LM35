@@ -93,8 +93,15 @@ http://<hostname>:1880/ui # Avec hostname l'IP de notre interface Node-red ici 1
 ```
 On obtient alors cette interface :
 
-<p align="center"> <img src="Gauge.png"  width="600"></p>
+<p align="center"> <img src="Vert.png"  width="600"></p>
 <p align="center"><em>Figure 6 : Jauge et Graphique</em></p>
+
+Et lorsque la température augmente et passe au dessus des 18°C, la couleur passe au jaune :
+
+<p align="center"> <img src="Jaune.png"  width="600"></p>
+<p align="center"><em>Figure 7 : Jauge et Graphique</em></p>
+
+Et quand la température dépasse 27°C, on passe au rouge.
 
 ## *Stockage et Exploitation des Données*
 
@@ -147,7 +154,7 @@ SELECT * from temperature
 On obtient le tableau suivant :
 
 <p align="center"> <img src="Tableau.png"  width="250"></p>
-<p align="center"><em>Figure 6 : Base de données SQlite</em></p>
+<p align="center"><em>Figure 7 : Base de données SQlite</em></p>
 
 6. Création d'un fichier CSV
 
@@ -164,7 +171,7 @@ Ce fichier « data.csv » est enregistrer dans /home/dorian, dans la carte SD de
 <p align="center">
   <img src="Dossier.png" width="45%" />
   <img src="CSV.png" width="20%" />
-</p><p align="center"><em>Figure 6 : Chemin d'accès CSV</em></p>
+</p><p align="center"><em>Figure 8 : Chemin d'accès CSV</em></p>
 
 ## *Amélioration affichage et Interface Utilisateur*
 
@@ -178,7 +185,7 @@ Notre schéma est composé de 7 blocs principaux :
 - 1 bloc graphique
 
 <p align="center"> <img src="Node2.png"  width="600"></p>
-<p align="center"><em>Figure 6 : Interface Node-Red</em></p>
+<p align="center"><em>Figure 9 : Interface Node-Red</em></p>
 
 
 
@@ -236,8 +243,6 @@ Un second test a consisté à modifier le réseau Wi-Fi utilisé par les équipe
 Ces tests démontrent la capacité du système à gérer des interruptions réseau temporaires tout en assurant la reprise automatique des communications.
 
 ---
-<p align="center"> [Voir le Guide de dépanage⚙️](Guide_de_dépannage.md)</p>
-
 [Voir le Guide de dépanage⚙️](Guide_de_dépannage.md)
 
 ## *Annexe*

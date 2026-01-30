@@ -103,6 +103,9 @@ Et lorsque la température augmente et passe au dessus des 18°C, la couleur pas
 
 Et quand la température dépasse 27°C, on passe au rouge.
 
+<p align="center"> <img src="Rouge.png"  width="600"></p>
+<p align="center"><em>Figure 8 : Jauge et Graphique</em></p>
+
 ## *Stockage et Exploitation des Données*
 
 Dans cette partie, nous allons dans un premier temps enregistrer les données dans une base SQlite sur la Raspberry Pi. Puis dans un second temps, mettre en place une structure de base de données organisée afin d’assurer une récupération efficace des données.
@@ -154,7 +157,7 @@ SELECT * from temperature
 On obtient le tableau suivant :
 
 <p align="center"> <img src="Tableau.png"  width="250"></p>
-<p align="center"><em>Figure 7 : Base de données SQlite</em></p>
+<p align="center"><em>Figure 8 : Base de données SQlite</em></p>
 
 6. Création d'un fichier CSV
 
@@ -171,7 +174,7 @@ Ce fichier « data.csv » est enregistrer dans /home/dorian, dans la carte SD de
 <p align="center">
   <img src="Dossier.png" width="45%" />
   <img src="CSV.png" width="20%" />
-</p><p align="center"><em>Figure 8 : Chemin d'accès CSV</em></p>
+</p><p align="center"><em>Figure 9 : Chemin d'accès CSV</em></p>
 
 ## *Amélioration affichage et Interface Utilisateur*
 
@@ -185,7 +188,7 @@ Notre schéma est composé de 7 blocs principaux :
 - 1 bloc graphique
 
 <p align="center"> <img src="Node2.png"  width="600"></p>
-<p align="center"><em>Figure 9 : Interface Node-Red</em></p>
+<p align="center"><em>Figure 10 : Interface Node-Red</em></p>
 
 
 
@@ -232,6 +235,41 @@ Le programme à toute une série de code couleur qui idique l'état de la transm
 - 🟠 --> Echec de la connexion au MQTT & Erreur envoie MQTT
 - 🟡 --> Tentative de connexion au Wifi
 - 🔵 --> Démarage du programme Arduino (Void setup())
+
+<ins>Configuration alerte par mail :</ins>
+
+Sur Node-Red on vient ajouter les blocs `Switch`; `function` et `Mail`
+
+Pour configurer les blocs switch on sélectionne payload dans "Property" et avec les flèches `<` et `>` on définit les températures limites.
+
+Pour configurer les blocs function on rentre les script suivant dans l'onglet `On Message` :
+
+<p align="center"> <img src="Basse.png"  width="600"></p>
+<p align="center"><em>Figure 11 : Fonction température basse</em></p>
+
+<p align="center"> <img src="Haute.png"  width="600"></p>
+<p align="center"><em>Figure 12 : Fonction température haute</em></p>
+
+Pour configurer le blocs e-mail il faut remplir comme ceci :
+
+<p align="center"> <img src="Gmail.png"  width="600"></p>
+<p align="center"><em>Figure 13 : Config bloc e-mail</em></p>
+
+Il faut également configurer son adresse gmail, voici les étapes :
+
+- Aller dans Compte --> Sécurité et connexion --> Validation en deux étape
+ - Cliquer sur "Activer la validation en deux étapes"
+- Puis aller dans Mot de passe des applications
+ - Rentrer le nom de l'application
+ - Puis faite "Créer"
+ - Copier le code qui s'affiche sur votre écran dans Node-Red dans `Password`
+
+Un fois que tout est fait on reçoit correctement les mails lorsque la température dépasse les limites fixés qui était ici de `18` et `20`
+
+<p align="center">
+  <img src="Mail1.png" width="45%" />
+  <img src="Mail2.png" width="45%" />
+</p><p align="center"><em>Figure 9 : Alerte mail</em></p>
 
 ## *Sécurisation et Fiabilité*
 

@@ -1,5 +1,3 @@
-# [README](README.md) | [Guide de dépannage](Guide_de_dépannage.md)
----
 # Guide de dépannage
 
 ---
@@ -40,3 +38,13 @@ Si on veut des valeurs stables, il faut que le capteur soit alimenté en 5 V au 
 Donc on se place sur la broche nommé `USB` de la carte EP32
 
 ## Node Red
+
+1. Choix du topic
+
+Il faut éviter de mettre un slash devant le nom du topic ~~/topic/temperature/~~, il est préférable d'écrire `topic/temperature/`
+
+2. Configuration des blocs
+
+ Pour le bloc de connexion MQTT, il faut bien écrire le nom du serveur soit centreia.fr et pas ~~centre ia.fr~~ ou ~~centreIA.fr~~
+
+Pour les jauges et graphiques, il faut choisir le même `Group` sinon il ne s'afficheront pas sur la même page et on ne verra qu'un seul des deux graphiques
